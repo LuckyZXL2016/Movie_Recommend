@@ -28,12 +28,6 @@
 
 ![image](https://github.com/ZzXxL1994/Movie_Recommend/blob/master/zxl_picture/web_1.png)
 
-**网站展示：**
-
-![image](https://github.com/ZzXxL1994/Movie_Recommend/blob/master/zxl_picture/web_2.png)
-
-![image](https://github.com/ZzXxL1994/Movie_Recommend/blob/master/zxl_picture/web_3.png)
-
 
 ## 三、后台管理系统
 
@@ -47,8 +41,19 @@
 
 ![image](https://github.com/ZzXxL1994/Movie_Recommend/blob/master/zxl_picture/admin_1.png)
 
-**网站展示：**
 
-![image](https://github.com/ZzXxL1994/Movie_Recommend/blob/master/zxl_picture/admin_2.png)
+## 四、推荐系统（Spark）
 
-![image](https://github.com/ZzXxL1994/Movie_Recommend/blob/master/zxl_picture/admin_3.png)
+**开发环境：** IntelliJ IDEA + maven + git + linux
+
+**软件架构：** hadoop + zookeeper + flume + kafka + nginx + spark + hive + mysql
+
+**项目描述：** 通过在电影网站系统埋点，获取到用户的点击事件（如用户喜欢哪部电影或对某部电影的评分）并将信息传至推荐系统，推荐系统根据该信息做出相应的处理，将推荐结果存入到mysql数据库中，web前端通过查询数据库将推荐的电影展示给用户。推荐流程如下：
+
+![image](https://github.com/ZzXxL1994/Movie_Recommend/blob/master/zxl_picture/recommend_1.png)
+
+**项目架构：**
+
+![image](https://github.com/ZzXxL1994/Movie_Recommend/blob/master/zxl_picture/recommend_2.png)
+
+**具体步骤：**
