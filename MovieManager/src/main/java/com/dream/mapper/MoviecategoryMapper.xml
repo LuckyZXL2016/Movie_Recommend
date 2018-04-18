@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dream.mapper.MoviecategoryMapper" >
+  <resultMap id="BaseResultMap" type="com.dream.po.Moviecategory" >
+    <id column="movcatid" property="movcatid" jdbcType="INTEGER" />
+    <result column="movieid" property="movieid" jdbcType="INTEGER" />
+    <result column="categoryid" property="categoryid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    movcatid, movieid, categoryid
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dream.po.MoviecategoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from moviecategory
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from moviecategory
+    where movcatid = #{movcatid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from moviecategory
+    where movcatid = #{movcatid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dream.po.MoviecategoryExample" >
+    delete from moviecategory
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dream.po.Moviecategory" >
+    insert into moviecategory (movcatid, movieid, categoryid
+      )
+    values (#{movcatid,jdbcType=INTEGER}, #{movieid,jdbcType=INTEGER}, #{categoryid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dream.po.Moviecategory" >
+    insert into moviecategory
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="movcatid != null" >
+        movcatid,
+      </if>
+      <if test="movieid != null" >
+        movieid,
+      </if>
+      <if test="categoryid != null" >
+        categoryid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="movcatid != null" >
+        #{movcatid,jdbcType=INTEGER},
+      </if>
+      <if test="movieid != null" >
+        #{movieid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryid != null" >
+        #{categoryid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dream.po.MoviecategoryExample" resultType="java.lang.Integer" >
+    select count(*) from moviecategory
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update moviecategory
+    <set >
+      <if test="record.movcatid != null" >
+        movcatid = #{record.movcatid,jdbcType=INTEGER},
+      </if>
+      <if test="record.movieid != null" >
+        movieid = #{record.movieid,jdbcType=INTEGER},
+      </if>
+      <if test="record.categoryid != null" >
+        categoryid = #{record.categoryid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update moviecategory
+    set movcatid = #{record.movcatid,jdbcType=INTEGER},
+      movieid = #{record.movieid,jdbcType=INTEGER},
+      categoryid = #{record.categoryid,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dream.po.Moviecategory" >
+    update moviecategory
+    <set >
+      <if test="movieid != null" >
+        movieid = #{movieid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryid != null" >
+        categoryid = #{categoryid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where movcatid = #{movcatid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dream.po.Moviecategory" >
+    update moviecategory
+    set movieid = #{movieid,jdbcType=INTEGER},
+      categoryid = #{categoryid,jdbcType=INTEGER}
+    where movcatid = #{movcatid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 配置Controller扫描 -->
+	<context:component-scan base-package="com.dream.controller" />
+
+	<context:property-placeholder location="classpath:resource.properties" />
+
+	<!-- 配置注解驱动 -->
+	<mvc:annotation-driven />
+ 
+ 	<!-- 对静态资源放行  -->
+	<mvc:resources location="/assets/" mapping="/assets/**"/>
+	<mvc:resources mapping="/js/**" location="/js/"/>
+
+    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
+
+
+    <!-- 自定义参数绑定 -->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <!-- 转换器 -->
+        <property name="converters">
+            <list>
+                <!-- 日期类型转换 -->
+                <bean class="com.dream.common.DateConverter"/>
+            </list>
+        </property>
+    </bean>
+
+	<!-- 视图解释器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<!-- 定义文件上传解析器 -->
+	<bean id="multipartResolver"
+		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设定默认编码 -->
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<!-- 设定文件上传的最大值5MB，5*1024*1024 -->
+		<property name="maxUploadSize" value="5242880"></property>
+	</bean>
+
+	<import resource="spring-shiro.xml"></import>
+
+	<!-- 未认证或未授权时跳转必须在springmvc里面配，spring-shiro里的shirofilter配不生效 -->
+	<bean   class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<!--表示捕获的异常 -->
+				<prop key="org.apache.shiro.authz.UnauthorizedException">
+					<!--捕获该异常时跳转的路径 -->
+					/403
+				</prop>
+				<!--表示捕获的异常 -->
+				<prop key="org.apache.shiro.authz.UnauthenticatedException">
+					<!--捕获该异常时跳转的路径 -->
+					/403
+				</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

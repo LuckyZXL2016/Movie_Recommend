@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Shared Calendar in DateBox - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+</head>
+<body>
+	<h2>Shared Calendar in DateBox</h2>
+	<p>Multiple datebox components can share a calendar and use it to pick dates.</p>
+	<div style="margin:20px 0;"></div>
+	<table>
+		<tr>
+			<td>Start Date:</td>
+			<td>
+				<input class="easyui-datebox" data-options="sharedCalendar:'#cc'">
+			</td>
+			<td>End Date:</td>
+			<td>
+				<input class="easyui-datebox" data-options="sharedCalendar:'#cc'">
+			</td>
+		</tr>
+	</table>
+	<div id="cc" class="easyui-calendar"></div>
+</body>
+</html>

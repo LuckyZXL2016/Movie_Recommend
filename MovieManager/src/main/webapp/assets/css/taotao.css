@@ -1,0 +1,32 @@
+ul{
+	list-style: none;
+}
+
+.hide{
+	display: none;
+}
+
+.itemParam ul{
+	padding-left: 0px;
+}
+.itemParam li{
+	line-height: 25px;
+}
+
+.itemForm .pics ul{
+	list-style: none;
+	padding-left: 0px;
+}
+.itemForm .pics ul li{
+	float: left;
+	padding-right: 5px;
+}
+.itemForm .group{
+	font-weight: bold;
+	text-align: center;
+	background-color: #EAEAEA;
+}
+.itemForm .param{
+	width: 80px;
+	text-align: right;
+}

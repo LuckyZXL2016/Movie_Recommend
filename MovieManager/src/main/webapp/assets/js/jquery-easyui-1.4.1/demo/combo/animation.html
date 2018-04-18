@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Combo Animation - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+</head>
+<body>
+	<h2>Combo Animation</h2>
+	<p>Change the animation type when open & close the drop-down panel.</p>
+	<div style="margin:20px 0">
+		<span>Animation Type:</span>
+		<select onchange="changeAnimation(this.value)">
+			<option>slide</option>
+			<option>fade</option>
+			<option>show</option>
+		</select>
+	</div>
+	<select id="cc" class="easyui-combo" style="width:150px"></select>
+	<script type="text/javascript">
+		$(function(){
+			changeAnimation('slide');
+		});
+		function changeAnimation(atype){
+			$('#cc').combo('panel').panel({
+				openAnimation:atype,
+				closeAnimation:(atype=='show'?'hide':atype)
+			});
+		}
+	</script>
+</body>
+</html>

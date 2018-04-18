@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>DateTimeSpinner with Clear Icon - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+</head>
+<body>
+	<h2>DateTimeSpinner with Clear Icon</h2>
+	<p>A clear icon can be attached to the datetimespinner. Click it to clear the entered value.</p>
+	<div style="margin:20px 0;"></div>
+	<input class="easyui-datetimespinner" style="width:180px;" data-options="
+			value: '6/24/2014 17:23:56',
+			showSeconds: true,
+			prompt: 'Input date time here!',
+			icons:[{
+				iconCls:'icon-clear',
+				handler: function(e){
+					$(e.data.target).datetimespinner('clear');
+				}
+			}]
+			">
+</body>
+</html>
