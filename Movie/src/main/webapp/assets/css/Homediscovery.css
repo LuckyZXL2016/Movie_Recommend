@@ -1,0 +1,212 @@
+
+.x-kankan-detail{
+    position: fixed;
+    left: 50%;
+    color: #fff;
+    text-shadow: #000 3px 3px 8px;
+    font-family: Helvetica, Verdana, "Microsoft YaHei", "Simsun";
+    height:152px;
+    width: 600px;
+    bottom:100px;
+    margin-left: -420px;
+    padding: 15px;
+    background-color: rgba(0,0,0, .6);
+    font-size: 11px;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#80000000,endColorstr=#80000000);
+}
+.x-kankan-detail a{
+    color:  #86C2F7;
+    font-weight: bold;
+}
+.x-kankan-title{
+    font-weight: bold;
+    margin-left: -3px;
+    font-size:22px;
+    line-height:22px;
+    margin-bottom:5px !important;
+}
+.x-kankan-starring{
+    filter:glow(color=black,strength=1);
+}
+.x-kankan-desc{
+    /*font-size: 1em;*/
+    filter:glow(color=black,strength=2);
+    font:12px "å¾®è½¯é›…é»‘", "å®‹ä½“", Arial, SunSans-Regular, Sans-Serif;
+    line-height:16px;
+}
+
+.xx-play-button{
+    width:200px;
+    height:130px;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    margin-top: -69px;
+    margin-left: -100px;
+    background-image: url(http://dianying.fm/static/imgs/trans.d89746888da2.gif);
+}
+.xx-play-button a{
+    width:100%;
+    height:100%;
+    display: block;
+}
+
+.x-kankan-detail p{
+    margin-bottom: 0px;
+}
+
+.x-kankan-buttons {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    margin-left: 220px;
+    width: 200px;
+}
+
+.revision-score {
+    position:absolute;
+    font-weight:normal;
+    right:15px;
+    font-size:12px;
+    color:rgb(225,191,123);
+}
+.revision-btn-history {
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled=true,startColorstr=#99000000, endColorstr=#99000000);
+    /*background:url("/no-image.d41d8cd98f00.jpg");*/
+    background:rgba(0,0,0,0.6);
+    color:#eee;
+    width:26px;
+    height:81px;
+    display:block;
+    border-right:1px solid #0f0f0f;
+    float:left;
+    text-align:center;
+    cursor: pointer;
+}
+:root .revision-btn-history {
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled=true,startColorstr=#00000000, endColorstr=#00000000);
+}/*for IE9*/
+.revision-btn-history:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.x-kankan-buttons a.btn-default {
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled=true,startColorstr=#99000000, endColorstr=#99000000);
+    /*background:url("/no-image.d41d8cd98f00.jpg");*/
+    background:rgba(0,0,0,0.6);
+    display:block;
+    text-align:center;
+    color:#eee;
+    float:left;
+}
+:root .x-kankan-buttons a.btn-default {
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled=true,startColorstr=#00000000, endColorstr=#00000000);
+}/*for IE9*/
+.x-kankan-buttons a.btn-default:hover {
+    color:#fff;
+    background-color:#000
+}
+
+.revision-btn-left {
+    width:50px;
+    height:66px;
+    border-right:1px solid #0f0f0f;
+}
+
+.revision-btn-right {
+    width:50px;
+    height:66px;
+}
+.revision-btn-next {
+    width:174px;
+    height:81px;
+    font-size:17px;
+}
+
+.x-kankan-buttons .glyphicon{
+    margin-top: 23px;
+}
+.x-kankan-buttons a{
+    text-decoration: none;
+}
+
+.x-kankan-navigator .glyphicon{
+    margin-top:30px;
+}
+.x-kankan-navigator{
+    margin:5px 0 0 0;
+    width:200px;
+}
+.fm-discovery {
+    background-position:center;
+    background-color: #000;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height:0;
+    padding-bottom:60%;
+}
+.navbar .navbar-brand.fmlogo{color: #489ce1;}
+
+@media(max-width: 768px) {
+    .x-kankan-detail {
+        width: 100%;
+        margin-left: -50%;
+        bottom: 50px;
+        height: auto;
+    }
+
+    .x-kankan-buttons {
+        bottom: 0;
+        width: 100%;
+        margin-left: -50%;
+    }
+
+    .fm-discovery-actions .btn-default, .fm-discovery-actions .revision-btn-left, .fm-discovery-actions .revision-btn-right {
+        width: 25%;
+        height: 50px;
+    }
+
+    .x-kankan-buttons .glyphicon {
+        margin-top: 18px;
+    }
+
+    .fm-discovery-actions {
+        width: 50%;
+        float: left;
+    }
+
+    .x-kankan-navigator {
+        margin: 0;
+        width: 50%;
+    }
+
+    .x-kankan-navigator .revision-btn-history {
+        height: 50px;
+        width: 25%;
+    }
+
+    .x-kankan-navigator .revision-btn-next {
+        height: 50px;
+        width: 75%;
+    }
+
+    .footer {
+        display: none;
+    }
+
+    .xx-play-button, .revision-collections {
+        display: none;
+    }
+
+    .bdshare-slide-button-box {
+        display: none !important;
+    }
+
+
+}
+
+
+
+

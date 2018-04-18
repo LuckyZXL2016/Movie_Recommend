@@ -1,0 +1,87 @@
+a.dream:hover {
+    background-color: black;
+}
+#liked:hover {
+    border-color: #CCC;
+}
+a:hover.likedactive
+{
+    background-color: pink;
+    color: white;
+    outline: 0 none !important;
+}
+a.likedactive
+{
+    background-color: pink;
+    color: white;
+    outline: 0 none !important;
+}
+
+
+#play:hover {
+    background-color: white;
+    outline: 0 none !important;
+    color: #00b4ef;
+}
+
+#submitevalutionstar:hover {
+    outline: 0 none !important;
+    background-color: white;
+    color: #00b4ef;
+}
+
+.footer {
+    background-color: black;
+    color: #CCC;
+    font-size: 12px;
+    text-align: center;
+    padding: 35px 0;
+    margin-top: 10%;
+
+}
+.component-poster-detail .nav-tabs > li {
+    width: 33.33% !important;
+}
+
+.qBox legend {
+    margin: 0 4px;
+    padding: 4px;
+    font-weight: bold;
+    white-space: nowrap;
+    border: none;
+    background: none;
+    border-radius: 25px;
+    line-height: 1;
+    vertical-align: text-top;
+    font-size: 12px;
+}
+
+.qBox legend .keyword {
+    display: inline-block;
+    max-width: 30em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+}
+
+.qBox a {
+    color: #333;
+    display: block;
+    float: left;
+    min-width: 100px;
+    line-height: 30px;
+    text-align: center;
+    padding: 4px 8px;
+    margin: 4px;
+    font-size: 12px;
+    border: 1px solid;
+    /* background: rgba(0,0,0,0.04); */
+    opacity: 1;
+    transition-duration: 0.3s;
+}
+
+.qBox a:hover {
+    font-size: 16px;
+    color: #4b8ccb;
+    background-color: whitesmoke;
+}

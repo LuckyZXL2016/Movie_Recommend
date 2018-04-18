@@ -1,0 +1,23 @@
+#mz_Float{position: absolute;z-index: 1000;top: -376px;left:750px;width: 200px;display: block;}
+#tip{
+    text-align:left
+}
+.bRadius2 {border-radius: 2px;outline: left um none;}
+
+.checkedN{border-color: green}
+.errorC{ border-color: red}
+
+.mail{box-shadow: 0 0 15px #141414;width: 210px;border: solid 1px silver;z-index: 10;position:absolute;top:90px;left:300px;display: none;}
+.mail .item{width:210px;position:relative;right:40px;margin-left:0px;background-color: #fff;color: #515151;cursor: pointer;height: 22px;line-height: 22px;letter-spacing: 1px;font-size: 13px;padding-left: 5px;}/*letter-spacing字符间距*/
+.mail .item:hover{background-color: #ccc; color: #fff;}
+.img{
+    width: 153px;
+    height: 200px;
+    border-radius: 10px;
+}
+.imgSelected{
+    border:2px solid #0F0;
+}
+#tab h6{
+    height: 20px;
+}

@@ -1,0 +1,33 @@
+/*搜索框*/
+.suggest{
+
+    position: absolute;
+    z-index:999;
+    width:auto;
+
+    height: auto;
+    max-height: 60%;
+    background-color: #ffffff;
+    /*opacity: 0.9;*/
+    border: 1px solid #999999;
+    overflow :auto;
+}
+.suggest ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.suggest ul li{
+
+    padding: 3px;
+    font-size: 14px;
+    line-height: 25px;
+    cursor: pointer;
+    border: 0.5px solid #e1edf7;
+}
+.suggest ul li:hover{
+    background-color: #eef9eb;
+}
+.suggest ul li span{
+    color: #494949;
+}

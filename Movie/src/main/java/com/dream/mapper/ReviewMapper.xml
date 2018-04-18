@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dream.mapper.ReviewMapper" >
+  <resultMap id="BaseResultMap" type="com.dream.po.Review" >
+    <id column="reviewid" property="reviewid" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="movieid" property="movieid" jdbcType="INTEGER" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="star" property="star" jdbcType="DOUBLE" />
+    <result column="reviewtime" property="reviewtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    reviewid, userid, movieid, content, star, reviewtime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dream.po.ReviewExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from review
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from review
+    where reviewid = #{reviewid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from review
+    where reviewid = #{reviewid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dream.po.ReviewExample" >
+    delete from review
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dream.po.Review" >
+    insert into review (reviewid, userid, movieid, 
+      content, star, reviewtime
+      )
+    values (#{reviewid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{movieid,jdbcType=INTEGER}, 
+      #{content,jdbcType=VARCHAR}, #{star,jdbcType=DOUBLE}, #{reviewtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dream.po.Review" >
+    insert into review
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="reviewid != null" >
+        reviewid,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="movieid != null" >
+        movieid,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="star != null" >
+        star,
+      </if>
+      <if test="reviewtime != null" >
+        reviewtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="reviewid != null" >
+        #{reviewid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="movieid != null" >
+        #{movieid,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="star != null" >
+        #{star,jdbcType=DOUBLE},
+      </if>
+      <if test="reviewtime != null" >
+        #{reviewtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dream.po.ReviewExample" resultType="java.lang.Integer" >
+    select count(*) from review
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update review
+    <set >
+      <if test="record.reviewid != null" >
+        reviewid = #{record.reviewid,jdbcType=INTEGER},
+      </if>
+      <if test="record.userid != null" >
+        userid = #{record.userid,jdbcType=INTEGER},
+      </if>
+      <if test="record.movieid != null" >
+        movieid = #{record.movieid,jdbcType=INTEGER},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.star != null" >
+        star = #{record.star,jdbcType=DOUBLE},
+      </if>
+      <if test="record.reviewtime != null" >
+        reviewtime = #{record.reviewtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update review
+    set reviewid = #{record.reviewid,jdbcType=INTEGER},
+      userid = #{record.userid,jdbcType=INTEGER},
+      movieid = #{record.movieid,jdbcType=INTEGER},
+      content = #{record.content,jdbcType=VARCHAR},
+      star = #{record.star,jdbcType=DOUBLE},
+      reviewtime = #{record.reviewtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dream.po.Review" >
+    update review
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="movieid != null" >
+        movieid = #{movieid,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="star != null" >
+        star = #{star,jdbcType=DOUBLE},
+      </if>
+      <if test="reviewtime != null" >
+        reviewtime = #{reviewtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where reviewid = #{reviewid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dream.po.Review" >
+    update review
+    set userid = #{userid,jdbcType=INTEGER},
+      movieid = #{movieid,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR},
+      star = #{star,jdbcType=DOUBLE},
+      reviewtime = #{reviewtime,jdbcType=TIMESTAMP}
+    where reviewid = #{reviewid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByUseridandMovieid" parameterType="com.dream.po.Review" resultMap="BaseResultMap">
+      select * from review where userid=#{0} and movieid=#{1}
+  </select>
+
+</mapper>

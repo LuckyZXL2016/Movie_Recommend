@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dream.mapper.SimilartabMapper" >
+  <resultMap id="BaseResultMap" type="com.dream.po.Similartab" >
+    <result column="itemid1" property="itemid1" jdbcType="INTEGER" />
+    <result column="itemid2" property="itemid2" jdbcType="INTEGER" />
+    <result column="similar" property="similar" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    itemid1, itemid2, similar
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dream.po.SimilartabExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from similartab
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="select5ByExample" resultMap="BaseResultMap" parameterType="com.dream.po.SimilartabExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from similartab
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause} DESC
+    </if>
+    limit 10
+  </select>
+  <delete id="deleteByExample" parameterType="com.dream.po.SimilartabExample" >
+    delete from similartab
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dream.po.Similartab" >
+    insert into similartab (itemid1, itemid2, similar
+      )
+    values (#{itemid1,jdbcType=INTEGER}, #{itemid2,jdbcType=INTEGER}, #{similar,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dream.po.Similartab" >
+    insert into similartab
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="itemid1 != null" >
+        itemid1,
+      </if>
+      <if test="itemid2 != null" >
+        itemid2,
+      </if>
+      <if test="similar != null" >
+        similar,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="itemid1 != null" >
+        #{itemid1,jdbcType=INTEGER},
+      </if>
+      <if test="itemid2 != null" >
+        #{itemid2,jdbcType=INTEGER},
+      </if>
+      <if test="similar != null" >
+        #{similar,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dream.po.SimilartabExample" resultType="java.lang.Integer" >
+    select count(*) from similartab
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update similartab
+    <set >
+      <if test="record.itemid1 != null" >
+        itemid1 = #{record.itemid1,jdbcType=INTEGER},
+      </if>
+      <if test="record.itemid2 != null" >
+        itemid2 = #{record.itemid2,jdbcType=INTEGER},
+      </if>
+      <if test="record.similar != null" >
+        similar = #{record.similar,jdbcType=DOUBLE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update similartab
+    set itemid1 = #{record.itemid1,jdbcType=INTEGER},
+      itemid2 = #{record.itemid2,jdbcType=INTEGER},
+      similar = #{record.similar,jdbcType=DOUBLE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <select id="select5ByExampleStr" resultType="java.lang.String" parameterType="com.dream.po.SimilartabExample" >
+    select itemid2 from similartab
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause} DESC
+    </if>
+    limit 5
+  </select>
+</mapper>
