@@ -147,7 +147,7 @@
 
 1）[安装nginx](https://blog.csdn.net/u011254180/article/details/77897663)，用来接收电影网站上用户的点击信息，写入本地文件
 
-2）[安装flume]
+2）[安装flume](https://blog.csdn.net/u011254180/article/details/80000763)，实时监控本地文件，将数据发送至kafka消息队列中
 
 **10.实时数据的接收处理**
 
