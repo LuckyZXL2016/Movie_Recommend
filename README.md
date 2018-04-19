@@ -10,6 +10,8 @@
 
 **软件架构：** mysql + scrapy
 
+**运行环境：** 本次爬取的内容在外网，所以需先翻墙后才能成功运行
+
 **项目架构：**
 
 ![image](https://github.com/ZzXxL1994/Movie_Recommend/blob/master/zxl_picture/scrapy.png)
