@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+<property>  
+	<name>hive.metastore.warehouse.dir</name>  
+	<value>hdfs://spark1:9000/user/hive_remote/warehouse</value>  
+</property>  
+<property>  
+	<name>hive.metastore.local</name>  
+	<value>true</value>  
+</property>  
+<property>  
+	<name>javax.jdo.option.ConnectionURL</name>  
+	<value>jdbc:mysql://spark2:3306/hive?createDatabaseIfNotExist=true</value>  
+</property>  
+<property>  
+	<name>javax.jdo.option.ConnectionDriverName</name>  
+	<value>com.mysql.jdbc.Driver</value>  
+</property>   
+<property>  
+	<name>javax.jdo.option.ConnectionUserName</name>  
+	<value>root</value>  
+</property>  
+<property>  
+	<name>javax.jdo.option.ConnectionPassword</name>  
+	<value>88888888</value>  
+</property>
+</configuration>
