@@ -1,6 +1,6 @@
 # 基于Spark的电影推荐系统
 
-本次项目是基于大数据过滤引擎的电影推荐系统--“懂你”电影网站，包含了爬虫、电影网站（前端和后端）、后台管理系统以及推荐系统（Spark）。部分软件[下载](https://pan.baidu.com/s/1CzowouZNO-l-MWJehroghg)
+本次项目是基于大数据过滤引擎的电影推荐系统--“懂你”电影网站，包含了爬虫、电影网站（前端和后端）、后台管理系统以及推荐系统（Spark）。项目中使用的部分软件[下载](https://pan.baidu.com/s/1CzowouZNO-l-MWJehroghg)
 
 ![image](https://github.com/ZzXxL1994/Movie_Recommend/blob/master/zxl_picture/introduce.png)
 
