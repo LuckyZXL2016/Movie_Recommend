@@ -66,7 +66,9 @@
 - spark2（ip 192.168.13.135），分配6G内存，4核
 - spark3（ip 192.168.13.136），分配6G内存，4核
 
+
 **2.电影数据集，[地址](https://grouplens.org/datasets/movielens/)：** 本次下载的为1m大小的数据集
+
 
 **3.环境的搭建：**
 
@@ -88,6 +90,7 @@
 
 5）[spark集群搭建](http://blog.csdn.net/u011254180/article/details/79381172)，搭建standalone模式，spark1为master，其他为worker
 
+
 **4.数据的清洗：** （上传数据至hdfs中，[hdfs操作](http://blog.csdn.net/u011254180/article/details/79399422)）
 
 1）启动 hdfs：  [root@spark1 ~]# start-dfs.sh 
@@ -106,6 +109,7 @@
 - 运行代码 spark-submit --class com.zxl.datacleaner.ETL --total-executor-cores 2 --executor-memory 2g lib/ETL.jar
 - 成功于hive中建表
 
+
 **5.数据的加工，** 根据ALS算法对数据建立模型([ALS论文](https://github.com/ZzXxL1994/Machine-Learning-Papers/tree/master/ALS))
 
 1）启动 hdfs：  [root@spark1 ~]# start-dfs.sh
@@ -120,6 +124,7 @@
 
 6）代码(com.zxl.datacleaner.RatingData)打包上传，测试建立模型
 
+
 **6.建立模型，** 根据RMSE(均方根误差)选取较好的模型
 
 1）启动上述的服务
@@ -131,11 +136,13 @@
 - 代码位于 package com.zxl.ml.ModelTraining，打包为 Spark_Movie.jar
 - 运行代码 spark-submit --class com.zxl.ml.ModelTraining lib/Spark_Movie.jar
 
+
 **7.产生推荐结果**
 
 1）启动上述的服务
 
 2）代码(com.zxl.ml.Recommender)打包上传，产生推荐结果
+
 
 **8.数据入库，** 存储为所有用户推荐的电影结果，mysql中存入的格式为(userid, movieid,rating)
 
@@ -145,11 +152,13 @@
 
 - 运行代码 spark-submit --class com.zxl.ml.RecommendForAllUsers --jars lib/mysql-connector-java-5.1.35-bin.jar lib/Spark_Movie.jar
 
+
 **9.实时数据的发送**
 
 1）[安装nginx](https://blog.csdn.net/u011254180/article/details/77897663)，用来接收电影网站上用户的点击信息，写入本地文件
 
 2）[安装flume](https://blog.csdn.net/u011254180/article/details/80000763)，实时监控本地文件，将数据发送至kafka消息队列中
+
 
 **10.实时数据的接收处理** ，如果打包到服务器运行错误，也可在本地IDEA上运行
 
