@@ -151,7 +151,7 @@
 
 2）[安装flume](https://blog.csdn.net/u011254180/article/details/80000763)，实时监控本地文件，将数据发送至kafka消息队列中
 
-**10.实时数据的接收处理**
+**10.实时数据的接收处理** ，如果打包到服务器运行错误，也可在本地IDEA上运行
 
 1）[安装zookeeper](http://blog.csdn.net/u011254180/article/details/79480234)
 
@@ -160,6 +160,8 @@
 3）启动上述的服务
 
 4）启动zookeeper：  [root@spark1 soft]# zkServer.sh start
+
+4）启动flume：[root@spark1 flume]# bin/flume-ng agent -c ./conf/ -f conf/flume-conf.properties -Dflume.root.logger=DEBUG,console -n a1
 
 5）启动kafka：  [root@spark1 kafka_2.11-0.10.1.0]# bin/kafka-server-start.sh config/server.properties
 
