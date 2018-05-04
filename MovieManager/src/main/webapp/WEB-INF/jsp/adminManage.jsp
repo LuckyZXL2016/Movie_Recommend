@@ -89,13 +89,16 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                    <li><a href="/movie/list" class="active"><i
-                            class="fa fa-edit fa-fw"></i> 电影管理</a></li>
-                    <li><a href="/user/list"><i
-                            class="fa fa-edit fa-fw"></i> 用户管理</a></li>
+                    <li>
+                        <a href="/movie/list" ><i class="fa fa-edit fa-fw"></i> 电影管理</a>
+                    </li>
+                    <li>
+                        <a href="/user/list"><i class="fa fa-edit fa-fw"></i> 用户管理</a>
+                    </li>
                 <shiro:hasRole name="admin">
-                    <li><a href="list.action"><i
-                        class="fa fa-edit fa-fw"></i> 管理员管理</a></li>
+                    <li>
+                        <a href="list.action" class="active"><i class="fa fa-edit fa-fw"></i> 管理员管理</a>
+                    </li>
                 </shiro:hasRole>
                 </ul>
             </div>

@@ -213,10 +213,16 @@
       <version>1.3.1</version>
     </dependency>
 
+    <!--<dependency>-->
+      <!--<groupId>fastdfs_client</groupId>-->
+      <!--<artifactId>fastdfs_client</artifactId>-->
+      <!--<version>1.25</version>-->
+    <!--</dependency>-->
+    <!-- https://mvnrepository.com/artifact/net.oschina.zcx7878/fastdfs-client-java -->
     <dependency>
-      <groupId>fastdfs_client</groupId>
-      <artifactId>fastdfs_client</artifactId>
-      <version>1.25</version>
+      <groupId>net.oschina.zcx7878</groupId>
+      <artifactId>fastdfs-client-java</artifactId>
+      <version>1.27.0.0</version>
     </dependency>
 
     <!-- shiro -->
